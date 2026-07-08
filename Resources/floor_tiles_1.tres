@@ -1,0 +1,44 @@
+[gd_resource type="TileSet" format=3 uid="uid://dgnlrijdfp0wf"]
+
+[ext_resource type="Texture2D" uid="uid://dguub06fp4bnf" path="res://Assets/sbs_-_isometric_floor_tiles_-_small_128x64/Small 128x64/Interior/1 Floor - Tiled 128x64.png" id="1_05wae"]
+[ext_resource type="Texture2D" uid="uid://hjtd7w1bfpgx" path="res://Assets/sbs_-_isometric_floor_tiles_-_small_128x64/Small 128x64/Interior/1 Floor - Tiled 32x16.png" id="2_fnd0i"]
+[ext_resource type="Texture2D" uid="uid://dd0lkp3kat15b" path="res://Assets/sbs_-_isometric_doorways_-_small/Small Doorway Tiles/Flat/Southeast/Flat_Brick_Doorway_05-SE-32x48.png" id="3_jumhx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q7y6"]
+texture = ExtResource("1_05wae")
+texture_region_size = Vector2i(128, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gge2w"]
+texture = ExtResource("2_fnd0i")
+texture_region_size = Vector2i(32, 16)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g2huk"]
+texture = ExtResource("3_jumhx")
+texture_region_size = Vector2i(32, 16)
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_4q7y6")
+sources/1 = SubResource("TileSetAtlasSource_gge2w")
+sources/2 = SubResource("TileSetAtlasSource_g2huk")
