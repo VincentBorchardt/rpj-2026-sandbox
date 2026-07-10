@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
+@onready var hitbox = $Hitbox
 const MOTION_SPEED = 40 # Pixels/second.
-
 var last_direction = Vector2(1, 0)
 
 func _physics_process(_delta):
@@ -14,6 +14,7 @@ func _physics_process(_delta):
 	set_velocity(motion)
 	move_and_slide()
 	var dir = velocity
+
 
 	#if dir.length() > 0:
 		#last_direction = dir
