@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://vkfj71bwiaxy" path="res://Scripts/hitbox.gd" id="5_754fn"]
 [ext_resource type="Script" uid="uid://cd4yjs7tjawvo" path="res://Scripts/hurtbox.gd" id="6_0f350"]
 [ext_resource type="Texture2D" uid="uid://c6ybk3mgbkqrx" path="res://icon.svg" id="6_8c0lf"]
+[ext_resource type="PackedScene" uid="uid://b3yk6sjihau72" path="res://Scenes/cutscene_overlay.tscn" id="9_bvt00"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40cke"]
 radius = 5.0
@@ -75,6 +76,8 @@ debug_color = Color(0.67989546, 0.4104085, 0.014950952, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1878073944]
 shape = SubResource("CircleShape2D_khvpl")
+
+[node name="CutsceneOverlay" parent="." unique_id=1827277353 instance=ExtResource("9_bvt00")]
 
 [connection signal="area_entered" from="Character/Hitbox" to="Character/Hitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="Enemy/Hurtbox" to="Enemy/Hurtbox" method="_on_hurtbox_area_entered"]
