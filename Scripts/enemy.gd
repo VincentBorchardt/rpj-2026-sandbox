@@ -7,7 +7,7 @@ enum State {
 
 var state = State.SHOOT
 
-@export var knockback_speed = 50
+@export var knockback_speed = 1.5
 @export var bullet_lag = .3
 @export var bullet_scene: PackedScene
 @onready var muzzle = $Marker2D
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	match state:
 		State.KNOCKBACK:
 			move_and_slide()
-			var collision = move_and_collide(velocity * delta)
+			var collision = move_and_collide(velocity)
 
 			if collision:
 				queue_free()

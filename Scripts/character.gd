@@ -32,10 +32,8 @@ func move_state():
 	motion.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	motion.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	motion.y /= 2
-
-	if motion.length() > 0:
-		motion = motion.normalized() * MOTION_SPEED
-		last_direction = motion.normalized()
+	motion = motion.normalized() * MOTION_SPEED
+	last_direction = motion.normalized()
 
 	velocity = motion
 	move_and_slide()
@@ -51,9 +49,14 @@ func knockback_state(delta):
 		state = State.MOVE
 		velocity = Vector2.ZERO
 
-
 func take_hit(direction):
 	state = State.KNOCKBACK
 	knockback_timer = KNOCKBACK_TIME
 
 	knockback_velocity = direction.normalized() * KNOCKBACK_SPEED
+
+	#if dir.length() > 0:
+		#last_direction = dir
+		#update_animation("walk")
+	#else:
+		#update_animation("idle")

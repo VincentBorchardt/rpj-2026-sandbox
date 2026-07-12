@@ -74,7 +74,7 @@ shape = SubResource("RectangleShape2D_yewy0")
 debug_color = Color(0.6392157, 0.8784314, 0.09803922, 0.41960785)
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=1440622654]
-position = Vector2(206, 104)
+position = Vector2(177, 87)
 script = ExtResource("5_0f350")
 bullet_scene = ExtResource("7_bvt00")
 
