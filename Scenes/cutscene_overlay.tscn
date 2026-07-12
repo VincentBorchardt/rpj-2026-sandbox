@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b3yk6sjihau72"]
+
+[ext_resource type="Script" uid="uid://bf4g2f701aaxf" path="res://Scripts/cutscene_overlay.gd" id="1_kxy35"]
+[ext_resource type="Texture2D" uid="uid://dv5n77p3o25jg" path="res://Assets/Marygold_pixel_portrait_flipped.png" id="2_63kbd"]
+[ext_resource type="Texture2D" uid="uid://6wdi85p4wpw8" path="res://Assets/Marygold_pixel_portrait.png" id="3_rb0uy"]
+[ext_resource type="Texture2D" uid="uid://dc3eduq70ud1r" path="res://Assets/Sample_Textbox.png" id="4_lit3v"]
+
+[node name="CutsceneOverlay" type="Control" unique_id=1827277353]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxy35")
+
+[node name="LeftSpeaker" type="Sprite2D" parent="." unique_id=38184716]
+position = Vector2(72, 157)
+texture = ExtResource("2_63kbd")
+
+[node name="RightSpeaker" type="Sprite2D" parent="." unique_id=6023688]
+position = Vector2(247, 157)
+texture = ExtResource("3_rb0uy")
+
+[node name="MessageArea" type="Control" parent="." unique_id=544860732]
+anchors_preset = 0
+offset_top = 185.0
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="MessageBox" type="Sprite2D" parent="MessageArea" unique_id=1622850733]
+position = Vector2(160, 25)
+texture = ExtResource("4_lit3v")
+
+[node name="Speaker" type="Label" parent="MessageArea" unique_id=52904933]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 90.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 10
+text = "Speaker"
+
+[node name="MessageText" type="Label" parent="MessageArea" unique_id=859375692]
+custom_maximum_size = Vector2(220, -1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 17.0
+offset_right = 269.0
+offset_bottom = 47.0
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 8
+text = "This is a bunch of text I want  to do things with and see if it wraps and I know it looks bad but presumably it'll look better with a better font than the default"
+autowrap_mode = 3
