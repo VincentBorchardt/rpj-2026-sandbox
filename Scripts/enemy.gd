@@ -37,7 +37,6 @@ func shoot():
 
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
-
 	bullet.global_position = muzzle.global_position
 	bullet.direction = (player.global_position - muzzle.global_position).normalized() * bullet_lag
 	bullet.rotation = bullet.direction.angle()
