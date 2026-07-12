@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cld25wfvnheim"]
+
+[ext_resource type="Script" uid="uid://c63grihcvsrpk" path="res://Scenes/bullet.gd" id="1_xjght"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pp5cw"]
+radius = 2.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sh3ki"]
+
+[sub_resource type="Gradient" id="Gradient_h05jv"]
+offsets = PackedFloat32Array(0.05421687, 0.13855422, 0.5421687)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.91453516, 0.26428032, 0.9639893, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yewy0"]
+gradient = SubResource("Gradient_h05jv")
+
+[node name="Bullet" type="Area2D" unique_id=2059597598]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_xjght")
+speed = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=568588098]
+shape = SubResource("CircleShape2D_pp5cw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1634345252]
+material = SubResource("CanvasItemMaterial_sh3ki")
+position = Vector2(1.7881393e-07, 1.1920929e-07)
+scale = Vector2(0.09375, 0.0625)
+texture = SubResource("GradientTexture2D_yewy0")
+
+[connection signal="area_entered" from="." to="." method="_on_body_entered"]

@@ -1,9 +1,9 @@
 extends Area2D
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	var enemy = get_parent()
+	var player = get_parent()
 	
-	var knockback = (enemy.global_position - area.global_position).normalized()
+	var knockback = (player.global_position - area.global_position).normalized()
 
 	if knockback.x >= 0:
 		knockback.x = 64
@@ -17,4 +17,4 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
 	knockback = knockback.normalized()
 	
-	enemy.take_hit(knockback)
+	player.take_hit(knockback)
