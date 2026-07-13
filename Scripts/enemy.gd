@@ -1,18 +1,47 @@
 extends CharacterBody2D
 
-@export var knockback_speed = 50
+enum State {
+	KNOCKBACK,
+	SHOOT
+}
 
-var knocked_back = false
+var state = State.SHOOT
+
+@export var knockback_speed = 1.5
+@export var bullet_lag = .3
+@export var bullet_scene: PackedScene
+@onready var muzzle = $Marker2D
+
+var player
+
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
+
 
 func _physics_process(delta):
-	if knocked_back:
-		move_and_slide()
-		var collision = move_and_collide(velocity * delta)
-		
-		if collision:
-			queue_free()
+	match state:
+		State.KNOCKBACK:
+			move_and_slide()
+			var collision = move_and_collide(velocity)
+
+			if collision:
+				queue_free()
 
 
 func take_hit(direction):
 	velocity = direction * knockback_speed
-	knocked_back = true
+	state = State.KNOCKBACK
+
+
+func shoot():
+
+	var bullet = bullet_scene.instantiate()
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = muzzle.global_position
+	bullet.direction = (player.global_position - muzzle.global_position).normalized() * bullet_lag
+	bullet.rotation = bullet.direction.angle()
+
+
+func _on_timer_timeout() -> void:
+	if state == State.SHOOT:
+		shoot()
