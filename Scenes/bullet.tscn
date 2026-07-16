@@ -14,7 +14,7 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.91453516, 0.26428032, 0.9639
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yewy0"]
 gradient = SubResource("Gradient_h05jv")
 
-[node name="Bullet" type="Area2D" unique_id=2059597598]
+[node name="Bullet" type="Area2D" unique_id=2059597598 groups=["npcs"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_xjght")

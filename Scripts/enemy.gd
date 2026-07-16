@@ -12,10 +12,10 @@ var state = State.SHOOT
 @export var bullet_scene: PackedScene
 @onready var muzzle = $Marker2D
 
-var player
+var npcs
 
 func _ready():
-	player = get_tree().get_first_node_in_group("player")
+	npcs = get_tree().get_first_node_in_group("npcs")
 
 
 func _physics_process(delta):
@@ -34,12 +34,12 @@ func take_hit(direction):
 
 
 func shoot():
-
-	var bullet = bullet_scene.instantiate()
-	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = muzzle.global_position
-	bullet.direction = (player.global_position - muzzle.global_position).normalized() * bullet_lag
-	bullet.rotation = bullet.direction.angle()
+	if npcs != null:
+		var bullet = bullet_scene.instantiate()
+		get_tree().current_scene.add_child(bullet)
+		bullet.global_position = muzzle.global_position
+		bullet.direction = (npcs.global_position - muzzle.global_position).normalized() * bullet_lag
+		bullet.rotation = bullet.direction.angle()
 
 
 func _on_timer_timeout() -> void:
