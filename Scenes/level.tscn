@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://dgnlrijdfp0wf" path="res://Resources/floor_tiles_1.tres" id="1_k5f4k"]
 [ext_resource type="Script" uid="uid://bolmyq3p56oub" path="res://Scripts/level.gd" id="1_oqgf2"]
 [ext_resource type="TileSet" uid="uid://nvmmxqui3v24" path="res://Resources/wall_tiles_1.tres" id="2_6phgx"]
+[ext_resource type="PackedScene" uid="uid://jw1rsqiqq4to" path="res://Scenes/Konig.tscn" id="3_bvt00"]
+[ext_resource type="PackedScene" uid="uid://72e7mtqjqgwa" path="res://Scenes/enemy.tscn" id="4_0f350"]
 [ext_resource type="Script" uid="uid://tcaxogqc2g1r" path="res://Scripts/message.gd" id="2_pa6b8"]
 [ext_resource type="Texture2D" uid="uid://c0kw57bjn7how" path="res://Assets/human_male_body_1.png" id="3_6phgx"]
 [ext_resource type="Script" uid="uid://q8s2h3t5772v" path="res://Scripts/character.gd" id="3_81xng"]
@@ -17,22 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b3yk6sjihau72" path="res://Scenes/cutscene_overlay.tscn" id="9_bvt00"]
 [ext_resource type="PackedScene" uid="uid://oy3kyn2tt8tn" path="res://Scenes/npcs.tscn" id="12_ha31o"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40cke"]
-radius = 5.0
-height = 10.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_khvpl"]
-size = Vector2(27.223614, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yewy0"]
-size = Vector2(8.000003, 24.999998)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp5cw"]
-size = Vector2(12, 12)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_khvpl"]
-radius = 6.0
-
 [node name="Level" type="Node2D" unique_id=1171439565]
 y_sort_enabled = true
 script = ExtResource("1_oqgf2")
@@ -43,73 +29,28 @@ tile_map_data = PackedByteArray("AAAHAAMAAQAAAAEAAAAHAAQAAQAAAAEAAAAHAAUAAQAAAAE
 tile_set = ExtResource("1_k5f4k")
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=309253700]
+visible = false
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAGAAYAAwACAAEAAAAGAAQAAwACAAEAAAAGAAIAAQACAAAAAAAGAAAAAwACAAEAAAAGAP7/AwACAAEAAAAHAP3/AwADAAEAAAAJAP3/AwADAAEAAAALAP3/AQADAAAAAAANAP3/AwADAAEAAAAPAP3/AwADAAEAAAAQAP7/AgACAAEAAAAQAAAAAgACAAEAAAAQAAIAAgACAAEAAAAQAAQAAgACAAEAAAAQAAYAAgACAAEAAAAPAAcAAwADAAEAAAANAAcAAwADAAEAAAALAAcAAwADAAEAAAAJAAcAAwADAAEAAAAHAAcAAwADAAEAAAA=")
 tile_set = ExtResource("2_6phgx")
 
-[node name="Character" type="CharacterBody2D" parent="." unique_id=1813451235 groups=["player"]]
-y_sort_enabled = true
-position = Vector2(151, 77)
-script = ExtResource("3_81xng")
+[node name="Konig" parent="." unique_id=1714238293 instance=ExtResource("3_bvt00")]
+position = Vector2(152, 112.0976)
 
-[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=1702716154]
-texture = ExtResource("3_6phgx")
-hframes = 8
-vframes = 4
+[node name="Enemy" parent="." unique_id=2045767508 instance=ExtResource("4_0f350")]
+position = Vector2(231, 122)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character" unique_id=1692414931]
-position = Vector2(0, 12)
-shape = SubResource("CapsuleShape2D_40cke")
+[node name="Enemy2" parent="." unique_id=1645908331 instance=ExtResource("4_0f350")]
+position = Vector2(179, 74)
 
-[node name="Hitbox" type="Area2D" parent="Character" unique_id=97993202]
-script = ExtResource("5_754fn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Hitbox" unique_id=170574958]
-rotation = -0.7853982
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_khvpl")
-debug_color = Color(0.8745098, 0.23137255, 0.05882353, 0.41960785)
-
-[node name="Hurtbox" type="Area2D" parent="Character" unique_id=1559100004]
-collision_layer = 2
-collision_mask = 8
-script = ExtResource("6_oqgf2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Hurtbox" unique_id=1607405819]
-position = Vector2(-1, 1.5)
-shape = SubResource("RectangleShape2D_yewy0")
-debug_color = Color(0.6431373, 0.88235295, 0.13333334, 0.41960785)
-
-[node name="Enemy" type="CharacterBody2D" parent="." unique_id=1440622654]
-position = Vector2(206, 104)
-script = ExtResource("5_0f350")
-bullet_scene = ExtResource("7_bvt00")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=836977261]
-scale = Vector2(0.10546875, 0.10546875)
-texture = ExtResource("6_8c0lf")
-
-[node name="Hurtbox" type="Area2D" parent="Enemy" unique_id=1381597320]
-collision_layer = 4
-script = ExtResource("6_0f350")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Hurtbox" unique_id=795565122]
-shape = SubResource("RectangleShape2D_pp5cw")
-debug_color = Color(0.67989546, 0.4104085, 0.014950952, 0.41960785)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1878073944]
-shape = SubResource("CircleShape2D_khvpl")
-
-[node name="Marker2D" type="Marker2D" parent="Enemy" unique_id=1157703035]
-
-[node name="Timer" type="Timer" parent="Enemy" unique_id=1507291916]
-wait_time = 0.898
-autostart = true
+[node name="Enemy3" parent="." unique_id=1024679197 instance=ExtResource("4_0f350")]
+position = Vector2(165, 162)
 
 [node name="CutsceneOverlay" parent="." unique_id=1827277353 instance=ExtResource("9_bvt00")]
 visible = false
 
 [node name="Npcs" parent="." unique_id=1420629166 groups=["npcs"] instance=ExtResource("12_ha31o")]
+position = Vector2(73, 102)
 position = Vector2(90, 104)
 
 [node name="Button" type="Button" parent="." unique_id=1684462076]
