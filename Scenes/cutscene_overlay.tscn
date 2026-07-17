@@ -16,10 +16,12 @@ grow_vertical = 2
 script = ExtResource("1_kxy35")
 
 [node name="LeftSpeaker" type="Sprite2D" parent="." unique_id=38184716]
+visible = false
 position = Vector2(72, 157)
 texture = ExtResource("2_63kbd")
 
 [node name="RightSpeaker" type="Sprite2D" parent="." unique_id=6023688]
+visible = false
 position = Vector2(247, 157)
 texture = ExtResource("3_rb0uy")
 

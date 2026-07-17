@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Message" format=3 uid="uid://dmgx8thwoiwnj"]
+
+[ext_resource type="Script" uid="uid://tcaxogqc2g1r" path="res://Scripts/message.gd" id="1_4v2wx"]
+[ext_resource type="Resource" uid="uid://b84hr514pioxa" path="res://Resources/test_marygold.tres" id="2_51am6"]
+
+[resource]
+script = ExtResource("1_4v2wx")
+speaker = ExtResource("2_51am6")
+message = "This is the second message in the sequence"
+image_location = 1
+metadata/_custom_type_script = "uid://tcaxogqc2g1r"
