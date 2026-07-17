@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://vkfj71bwiaxy" path="res://Scripts/hitbox.gd" id="5_754fn"]
 [ext_resource type="Script" uid="uid://cd4yjs7tjawvo" path="res://Scripts/hurtbox.gd" id="6_0f350"]
 [ext_resource type="Texture2D" uid="uid://c6ybk3mgbkqrx" path="res://icon.svg" id="6_8c0lf"]
-[ext_resource type="Script" uid="uid://v5g23ycngyrm" path="res://Scenes/player_hurtbox.gd" id="6_oqgf2"]
+[ext_resource type="Script" uid="uid://v5g23ycngyrm" path="res://Scripts/player_hurtbox.gd" id="6_oqgf2"]
 [ext_resource type="PackedScene" uid="uid://cld25wfvnheim" path="res://Scenes/bullet.tscn" id="7_bvt00"]
 [ext_resource type="PackedScene" uid="uid://b3yk6sjihau72" path="res://Scenes/cutscene_overlay.tscn" id="9_bvt00"]
-[ext_resource type="Texture2D" uid="uid://dv5n77p3o25jg" path="res://Assets/Marygold_pixel_portrait_flipped.png" id="10_oqgf2"]
+[ext_resource type="PackedScene" uid="uid://oy3kyn2tt8tn" path="res://Scenes/npcs.tscn" id="12_ha31o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40cke"]
 radius = 5.0
@@ -32,10 +32,6 @@ size = Vector2(12, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khvpl"]
 radius = 6.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pp5cw"]
-radius = 4.0
-height = 8.0
 
 [node name="Level" type="Node2D" unique_id=1171439565]
 y_sort_enabled = true
@@ -113,17 +109,8 @@ autostart = true
 [node name="CutsceneOverlay" parent="." unique_id=1827277353 instance=ExtResource("9_bvt00")]
 visible = false
 
-[node name="NPC" type="CharacterBody2D" parent="." unique_id=691209623]
-position = Vector2(59, 15)
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=1005064377]
-position = Vector2(0.40538788, 2.70261)
-scale = Vector2(0.065, 0.065)
-texture = ExtResource("10_oqgf2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=1290626868]
-position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_pp5cw")
+[node name="Npcs" parent="." unique_id=1420629166 groups=["npcs"] instance=ExtResource("12_ha31o")]
+position = Vector2(90, 104)
 
 [node name="Button" type="Button" parent="." unique_id=1684462076]
 offset_left = 257.0
